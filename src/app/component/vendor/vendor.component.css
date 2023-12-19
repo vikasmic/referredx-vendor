@@ -1,0 +1,23 @@
+.inviteOpenPopup {
+    display: block;
+  }
+  
+  .inviteClosePopup {
+   display: none;
+  }
+
+  .languageOpenPopup {
+    display: block;
+  }
+  
+  .languageClosePopup {
+   display: none;
+  }
+
+  .contactOpenPopup {
+    display: block;
+  }
+  
+  .contactClosePopup {
+   display: none;
+  }
