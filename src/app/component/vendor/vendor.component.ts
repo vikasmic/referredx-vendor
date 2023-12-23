@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faWaveSquare, faEnvelopesBulk, faGripVertical, faShareFromSquare, faLanguage, faMoneyBill, faMessage, faBuildingCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,15 +7,6 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./vendor.component.css']
 })
 export class VendorComponent {
-  faWaveSquare = faWaveSquare;
-  faGripVertical = faGripVertical;
-  faEnvelopesBulk = faEnvelopesBulk;
-  faShareFromSquare = faShareFromSquare;
-  faLanguage = faLanguage;
-  faMoneyBill = faMoneyBill;
-  faMessage = faMessage;
-  faBuildingCircleArrowRight = faBuildingCircleArrowRight;
-
   isProfile: boolean = false;
   isActivity: boolean = false;
   isMail: boolean = false;
