@@ -54,45 +54,69 @@
         <div class="col-12 col-md-5 order-md-2" data-aos="fade-left">
           <div class="card">
             <div class="card-body">
-              <form class="needs-validation" novalidate="">
+              <form class="needs-validation" [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="form-row">
                   <div class="col-md-6 mb-3">
-                    <label for="validationTooltip01">First name </label> <input type="text" class="form-control"
-                      id="validationTooltip01" placeholder="First name" value="Mark" required="">
-                    <div class="valid-tooltip"> Looks good! </div>
+                    <label>First name </label> <input type="text" class="form-control" placeholder="First name"
+                      required="" formControlName="first_name"
+                      [ngClass]="{ 'is-invalid': submitted && f['first_name'].errors }">
+                    <div *ngIf="submitted && f['first_name'].errors" class="invalid-feedback">
+                      <div *ngIf="f['first_name'].errors['required']">First Name required</div>
+                    </div>
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Last name </label> <input type="text" class="form-control"
-                      id="validationTooltip02" placeholder="Last name" value="Otto" required="">
-                    <div class="valid-tooltip"> Looks good! </div>
+                    <label>Last name </label> <input type="text" class="form-control" placeholder="Last name"
+                      required="" formControlName="last_name"
+                      [ngClass]="{ 'is-invalid': submitted && f['last_name'].errors }">
+                    <div *ngIf="submitted && f['last_name'].errors" class="invalid-feedback">
+                      <div *ngIf="f['last_name'].errors['required']">Last Name required</div>
+                    </div>
                   </div>
                   <div class="col-md-12 mb-3">
                     <label for="validationTooltipUsername">Work Email </label> <input type="text" class="form-control"
-                      id="validationTooltipUsername" placeholder="Username" aria-describedby="inputGroupPrepend"
-                      required="">
-                    <div id="inputGroupPrepend" class="invalid-tooltip"> Please choose a username. </div>
+                      placeholder="work email" aria-describedby="inputGroupPrepend" required="" formControlName="email"
+                      [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                      <div *ngIf="f['email'].errors['required']">Email is required</div>
+                      <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+                      <div *ngIf="f['email'].errors['invalidDomain']">Email domain is not allowed</div>
+                    </div>
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="validationTooltip01">Company Name </label> <input type="text" class="form-control"
-                      id="validationTooltip01" placeholder="First name" value="Mark" required="">
-                    <div class="valid-tooltip"> Looks good! </div>
+                    <label>Company Name </label> <input type="text" class="form-control" placeholder="Company Name"
+                      required="" formControlName="company_name"
+                      [ngClass]="{ 'is-invalid': submitted && f['company_name'].errors }">
+                    <div *ngIf="submitted && f['company_name'].errors" class="invalid-feedback">
+                      <div *ngIf="f['company_name'].errors['required']">Company Name required</div>
+                    </div>
                   </div>
                   <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Phone Number </label> <input type="text" class="form-control"
-                      id="validationTooltip02" placeholder="Last name" value="Otto" required="">
-                    <div class="valid-tooltip"> Looks good! </div>
+                    <label>Phone Number </label> <input type="text" class="form-control" placeholder="Phone Number"
+                      required="" formControlName="contact"
+                      [ngClass]="{ 'is-invalid': submitted && f['contact'].errors }">
+                    <div *ngIf="submitted && f['contact'].errors" class="invalid-feedback">
+                      <div *ngIf="f['contact'].errors['required']">Contact is
+                        required</div>
+                      <div *ngIf="f['contact'].errors['pattern']">
+                        Invalid Contact number
+                      </div>
+                    </div>
                   </div>
                   <div class="col-md-5 mb-3">
                     <label for="validationTooltipCountry">Country </label> <select class="custom-select d-block w-100"
-                      id="validationTooltipCountry" required="">
-                      <option value=""> Choose... </option>
-                      <option> United States </option>
+                      formControlName="countryId" required="">
+                      <option value=""> Country </option>
+                      <option [value]="countries._id" *ngFor="let countries of countryList">
+                        {{countries.countryCode}} ({{countries.mobileCode}})
+                      </option>
                     </select>
-                    <div class="invalid-feedback"> Please select a valid country. </div>
+                    <div *ngIf="submitted && form.get('countryId')?.invalid" class="text-danger">
+                      Country required
+                    </div>
                   </div>
                 </div>
                 <div class="form-actions">
-                  <button class="btn btn-primary" type="submit">Submit form</button>
+                  <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
               </form>
             </div>
