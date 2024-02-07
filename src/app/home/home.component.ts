@@ -17,9 +17,7 @@ export class HomeComponent {
     first_name: new FormControl(''),
     last_name: new FormControl(''),
     email: new FormControl(''),
-    company_name: new FormControl(''),
     contact: new FormControl(''),
-    country: new FormControl(''),
     countryId: new FormControl(''),
 
   });
@@ -28,10 +26,9 @@ export class HomeComponent {
     this.getCountries();
     this.form = this.formBuilder.group(
       {
-        email: ['', [Validators.required, Validators.email, this.CustomEmailValidator]],
+        email: ['', [Validators.required, Validators.email]],
         first_name: ['', [Validators.required]],
         last_name: ['', [Validators.required]],
-        company_name: ['', [Validators.required]],
         contact: [
           '',
           [
@@ -63,15 +60,10 @@ export class HomeComponent {
     if (this.form.invalid) {
       return;
     }
+    console.log("form value", this.form.value);
+    this.authService.performSave('/api/vendor/create/enquiry', this.form.value).subscribe((resp) => {
+      console.log("resp", resp);
+    })
   }
 
-  CustomEmailValidator(control: any) {
-    const email = control.value as string;
-    if (/\b(?:gmail|yahoo|hotmail)\b/.test(email)) {
-      return {
-        invalidDomain: true,
-      };
-    }
-    return null;
-  }
 }

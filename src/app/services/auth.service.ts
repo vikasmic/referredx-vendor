@@ -61,7 +61,7 @@ export class AuthService {
 
     getQueryParam(baseUrl: any, term: string) {
         const params = {
-            term: term,
+            token: term,
         };
         return this.http.get<any>(this.getFormatedUrl(baseUrl), { params });
     }

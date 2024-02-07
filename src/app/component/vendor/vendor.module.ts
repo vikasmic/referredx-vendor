@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { VendorRoutingModule } from './vendor-routing.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    // VerifyComponent
+  ],
   imports: [
     CommonModule,
     VendorRoutingModule
