@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { ErrorService } from '../services/error.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent {
   countryList: any;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private errorService: ErrorService) { }
 
   form: FormGroup = new FormGroup({
     first_name: new FormControl(''),
@@ -61,8 +62,12 @@ export class HomeComponent {
       return;
     }
     console.log("form value", this.form.value);
-    this.authService.performSave('/api/vendor/create/enquiry', this.form.value).subscribe((resp) => {
+    this.authService.performSave('/api/vendor/create/enquiry', this.form.value).subscribe((resp: any) => {
       console.log("resp", resp);
+      if (resp.success == 0) {
+        console.log("come here");
+        this.errorService.showError(resp.message);
+      }
     })
   }
 
