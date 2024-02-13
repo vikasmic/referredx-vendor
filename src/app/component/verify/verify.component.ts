@@ -59,7 +59,6 @@ export class VerifyComponent {
   }
 
   onSubmit(): void {
-    console.log("come here");
     this.submitted = true;
     if (this.form.invalid) {
       return;
@@ -69,7 +68,6 @@ export class VerifyComponent {
       token: this.token
     };
     this.authService.performSave('/api/vendor/set/password', formValueWithToken).subscribe((response: any) => {
-      console.log("response", response);
       if (response.success == 0) {
         this.successService.showSuccessMessage(response.message);
         setTimeout(() => {

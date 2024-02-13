@@ -1,1 +1,103 @@
-<p>login works!</p>
+<main class="auth auth-floated">
+    <!-- form -->
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+            <div class="mb-3">
+                <img class="rounded" src="../../assets/images/logo/icon.svg" alt="" height="72">
+
+            </div>
+            <h1 class="h3"> Sign In </h1>
+        </div>
+        <p class="text-left mb-4"> Don't have a account? <a [routerLink]="['/signup']">Create One</a>
+        </p>
+        <div>
+        </div>
+        <hr class="mb-4">
+
+        <div class="form-group mb-4">
+            <label class="d-block text-left" for="inputUser">Email</label> <input type="text" id="inputUser"
+                class="form-control form-control-lg" required="" autofocus="" formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" autocomplete="email">
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+        </div><!-- /.form-group -->
+        <!-- .form-group -->
+        <div class="form-group mb-4">
+            <label class="d-block text-left" for="inputPassword">Password</label> <input type="password"
+                id="inputPassword" class="form-control form-control-lg" required="" formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" autocomplete="current-password">
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                <div *ngIf="f['password'].errors['required']">Password is required</div>
+            </div>
+        </div><!-- /.form-group -->
+        <!-- .form-group -->
+        <div class="form-group mb-4">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+        </div><!-- /.form-group -->
+        <!-- .form-group -->
+        <div class="form-group text-center">
+            <div class="custom-control custom-control-inline custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="remember-me"> <label
+                    class="custom-control-label" for="remember-me">Keep me sign in</label>
+            </div>
+        </div><!-- /.form-group -->
+        <!-- recovery links -->
+        <p class="py-2">
+            <a class="link" (click)="forgotPassword()">Forgot Password?</a>
+        </p><!-- /recovery links -->
+        <!-- copyright -->
+        <p class="mb-0 px-3 text-muted text-center"> {{COPYRIGHT}} <a target="_blank" routerLink="/privacy">Privacy</a>
+            and <a target="_blank" routerLink="/legal">Terms</a>
+        </p>
+    </form><!-- /.auth-form -->
+    <div id="announcement" class="auth-announcement"
+        style="background-image: url(../../../assets/images/illustrations/img-1.png);">
+        <div class="announcement-body">
+            <h2 class="announcement-title"> How to Prepare for an Automated Future </h2><a href="#"
+                class="btn btn-warning"><i class="fa fa-fw fa-angle-right"></i> Check Out Now</a>
+        </div>
+    </div>
+    <div class="modal fade has-shown show" id="forgotModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="forgotModalCenterLabel" aria-hidden="true" [ngClass]="[ForgotPopup]">
+        <!-- .modal-dialog -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <!-- .modal-content -->
+            <div class="modal-content">
+                <!-- .modal-header -->
+                <form [formGroup]="forgotForm" (ngSubmit)="onForgotSubmit()">
+
+                    <div class="modal-header">
+                        <h5 id="forgotModalCenterLabel" class="modal-title"> Email </h5>
+                    </div><!-- /.modal-header -->
+                    <!-- .modal-body -->
+                    <div class="modal-body">
+                        <!-- .publisher -->
+                        <div class="form-group">
+                            <label for="email">Email</label> <input type="text" id="email"
+                                class="form-control form-control-lg" placeholder="Enter Email" formControlName="email"
+                                [ngClass]="{ 'is-invalid': forgotSubmitted && fp['email'].errors }">
+                            <div *ngIf="forgotSubmitted && fp['email'].errors" class="invalid-feedback">
+                                <div *ngIf="fp['email'].errors['required']">Email is required</div>
+                                <div *ngIf="fp['email'].errors['email']">Invalid email</div>
+                            </div>
+                        </div>
+                    </div><!-- /.modal-body -->
+                    <!-- .modal-footer -->
+                    <div class="modal-footer">
+                        <ng-container class="form-group" *ngIf="!resetLinkLoad; else loadResetForm">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Reset Password</button>
+                        </ng-container>
+                        <ng-template #loadResetForm>
+                            <button class="btn btn-primary" type="button" disabled><span
+                                    class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Please wait...</button>
+                        </ng-template>
+                        <button type="button" class="btn btn-light" (click)="closeForgot()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main><!-- /.auth -->

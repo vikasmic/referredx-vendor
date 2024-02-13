@@ -18,9 +18,7 @@
         <img class="rounded" src="../../assets/images/logo/logo.svg" alt="" height="45">
 
       </a> <!-- /.navbar-brand -->
-      <a class="navbar-btn btn btn-subtle-primary ml-auto order-lg-2"
-        href="https://themes.getbootstrap.com/product/looper-responsive-admin-template" target="_blank">Purchase
-        now</a>
+      <a class="navbar-btn btn btn-subtle-primary ml-auto order-lg-2" href="javascript:void(0)">Login</a>
       <div class="navbar-collapse collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item mr-lg-3 active">
@@ -97,8 +95,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-actions">
+                <div class="form-actions" *ngIf="!isLoading">
                   <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+                <div *ngIf="isLoading">
+                  <button class="btn btn-lg btn-primary btn-block" type="button" disabled><span
+                      class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Please wait...</button>
                 </div>
               </form>
             </div>
