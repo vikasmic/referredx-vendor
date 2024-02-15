@@ -78,13 +78,14 @@ export class LoginComponent {
       this.isLoginLoad = false;
       return;
     }
-    this.authService.performSave('/api/auth/login', this.form.value).subscribe(response => {
+    this.authService.performSave('/api/auth/vendor/login', this.form.value).subscribe(response => {
+      console.log("ereponse", response);
       this.isLoginLoad = false;
       this.loginResponse = response;
       if (this.loginResponse.success == 1) {
         this.toastr.success("login successful");
         localStorage.setItem('access_token', this.loginResponse.token);
-        this.router.navigate(['/user/home']);
+        this.router.navigate(['/vendor']);
       } else {
         this.isMessage = true;
         this.lognResponseMessage = this.loginResponse.message;

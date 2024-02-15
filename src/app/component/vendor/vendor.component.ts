@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { AppConstants } from 'src/app/utility/AppConstants';
 
 @Component({
   selector: 'app-vendor',
@@ -7,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./vendor.component.css']
 })
 export class VendorComponent {
+  COPYRIGHT = AppConstants.copyright;
   isProfile: boolean = false;
   isActivity: boolean = false;
   isMail: boolean = false;
