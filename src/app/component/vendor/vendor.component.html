@@ -1,0 +1,347 @@
+<!-- <div class="page-size">
+    <main id="notfound-state" class="empty-state empty-state-fullpage bg-black">
+        <div class="empty-state-container">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </main>
+</div> -->
+<div class="app">
+    <!--[if lt IE 10]>
+      <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
+      <![endif]-->
+    <!-- .app-header -->
+    <header class="app-header app-header-dark">
+        <!-- .top-bar -->
+        <div class="top-bar">
+            <!-- .top-bar-brand -->
+            <div class="top-bar-brand">
+                <!-- toggle aside menu -->
+                <button class="hamburger hamburger-squeeze mr-2" type="button" data-toggle="aside-menu"
+                    aria-label="toggle aside menu"><span class="hamburger-box"><span
+                            class="hamburger-inner"></span></span></button> <!-- /toggle aside menu -->
+                <a href="javascript:void(0)">
+                    <img class="rounded" src="../../assets/images/logo/asset.svg" alt="" height="40">
+                </a>
+            </div><!-- /.top-bar-brand -->
+            <!-- .top-bar-list -->
+            <div class="top-bar-list">
+                <!-- .top-bar-item -->
+                <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
+                    <!-- toggle menu -->
+                    <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside"
+                        aria-label="toggle menu"><span class="hamburger-box"><span
+                                class="hamburger-inner"></span></span></button> <!-- /toggle menu -->
+                </div><!-- /.top-bar-item -->
+                <!-- .top-bar-item -->
+                <div class="top-bar-item top-bar-item-full">
+                    <!-- .top-bar-search -->
+                    <form class="top-bar-search">
+                        <!-- .input-group -->
+                        <div class="input-group input-group-search dropdown">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><span class="oi oi-magnifying-glass"></span></span>
+                            </div><input type="text" class="form-control" data-toggle="dropdown" aria-label="Search"
+                                placeholder="Search">
+                            <div class="dropdown-menu dropdown-menu-rich dropdown-menu-xl ml-n4 mw-100">
+                                <div class="dropdown-arrow ml-3"></div>
+                                <div class="dropdown-scroll perfect-scrollbar h-auto"
+                                    [ngStyle]="{'max-height':'360px'}">
+                                    <div class="list-group list-group-flush list-group-reflow mb-2">
+                                        <h6 class="list-group-header d-flex justify-content-between">
+                                            <span>Shortcut</span>
+                                        </h6>
+                                        <div class="list-group-item py-2">
+                                            <a href="#" class="stretched-link"></a>
+                                            <div class="tile tile-sm bg-muted">
+                                                <i class="fas fa-user-plus"></i>
+                                            </div>
+                                            <div class="ml-2"> Create user </div>
+                                        </div>
+                                        <div class="list-group-item py-2">
+                                            <a href="#" class="stretched-link"></a>
+                                            <div class="tile tile-sm bg-muted">
+                                                <i class="fas fa-dollar-sign"></i>
+                                            </div>
+                                            <div class="ml-2"> Create invoice </div>
+                                        </div>
+                                        <h6 class="list-group-header d-flex justify-content-between mt-2">
+                                            <span>In projects</span> <a href="#" class="font-weight-normal">Show
+                                                more</a>
+                                        </h6>
+                                        <div class="list-group-item py-2">
+                                            <a href="#" class="stretched-link"><span class="sr-only">Go to search
+                                                    result</span></a>
+                                            <div class="user-avatar user-avatar-sm bg-muted">
+                                                <img src="../../../assets/images/avatars/bootstrap.svg" alt="">
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="mb-n1"> Bootstrap </div><small class="text-muted">Just
+                                                    now</small>
+                                            </div>
+                                        </div><!-- /.list-group-item -->
+                                        <!-- .list-group-item -->
+                                        <div class="list-group-item py-2">
+                                            <a href="#" class="stretched-link"><span class="sr-only">Go to search
+                                                    result</span></a>
+                                            <div class="user-avatar user-avatar-sm bg-muted">
+                                                <img src="../../../assets/images/avatars/slack.svg" alt="">
+                                            </div>
+                                            <div class="ml-2">
+                                                <div class="mb-n1"> Slack </div><small class="text-muted">Updated 25
+                                                    minutes ago</small>
+                                            </div>
+                                        </div><!-- /.list-group-item -->
+                                        <!-- /.list-group-item -->
+                                        <h6 class="list-group-header d-flex justify-content-between mt-2">
+                                            <span>Another section</span> <a href="#" class="font-weight-normal">Show
+                                                more</a>
+                                        </h6><!-- .list-group-item -->
+                                        <div class="list-group-item py-2">
+                                            <a href="#" class="stretched-link"><span class="sr-only">Go to search
+                                                    result</span></a>
+                                            <div class="tile tile-sm bg-muted"> P </div>
+                                            <div class="ml-2">
+                                                <div class="mb-n1"> Product name </div>
+                                            </div>
+                                        </div><!-- /.list-group-item -->
+                                    </div><!-- /.list-group -->
+                                </div><!-- /.dropdown-scroll -->
+                                <a href="#" class="dropdown-footer">Show all results</a>
+                            </div><!-- /.dropdown-menu -->
+                        </div><!-- /.input-group -->
+                    </form><!-- /.top-bar-search -->
+                </div><!-- /.top-bar-item -->
+                <!-- .top-bar-item -->
+                <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+                    <ul class="header-nav nav">
+                        <li class="nav-item dropdown header-nav-dropdown has-notified" [ngStyle]="{'cursor': 'pointer'}"
+                            [ngClass]="isActivity? 'show':' '">
+                            <a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><span><fa-icon [icon]="faWaveSquare"></fa-icon></span></a>
+                            <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right">
+                                <div class="dropdown-arrow"></div>
+                                <!-- <h6 class="dropdown-header stop-propagation">
+                                        <span>Total Vendors Enquiry<span
+                                                class="badge">{{vendorsEnquiry.length}}</span></span>
+                                    </h6> -->
+                                <div class="dropdown-scroll perfect-scrollbar scroll-bar">
+                                    <a href="javascript:void(0)" class="dropdown-item unread">
+                                        <div class="user-avatar">
+                                            <img src="../../../assets/images/avatars/uifaces15.jpg" alt="">
+                                        </div>
+                                        <!-- <div class="dropdown-item-body">
+                                                <p class="text"> {{vendor.first_name}} {{vendor.last_name}} </p><span
+                                                    class="date">
+                                                    {{vendor.email}}</span>
+                                            </div> -->
+                                    </a>
+                                </div>
+                                <a href="javascript:void(0)" class="dropdown-footer">All
+                                    Vendors <i class="fas fa-fw fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown header-nav-dropdown" [ngStyle]="{'cursor': 'pointer'}"
+                            [ngClass]="isMail? 'show':' '">
+                            <a class="nav-link" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><span><fa-icon [icon]="faEnvelopesBulk"></fa-icon></span></a>
+                            <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right"
+                                [ngClass]="isMail? 'show':' '">
+                                <div class="dropdown-arrow"></div>
+                                <h6 class="dropdown-header stop-propagation">
+                                    <span>Messages</span> <a href="javascript:void(0)">Mark all as read</a>
+                                </h6>
+                                <div class="dropdown-scroll perfect-scrollbar scroll-bar">
+                                    <a href="javascript:void()" class="dropdown-item unread">
+                                        <div class="user-avatar">
+                                            <img src="../../../assets/images/avatars/team1.jpg" alt="">
+                                        </div>
+                                        <!-- <div class="dropdown-item-body">
+                                                <p class="subject"> {{post.company_name}} </p>
+                                                <p class="text text-truncate"> {{post.job_title}}
+                                                </p><span class="date">{{post.location_type}}</span>
+                                            </div> -->
+                                    </a>
+                                </div>
+                                <a href="javascript:void(0)" class="dropdown-footer" data-target="#messageNewForm">
+                                    All messages <i class="fas fa-fw fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown header-nav-dropdown" [ngClass]="isActive? 'show':' '"
+                            [ngStyle]="{'cursor': 'pointer'}">
+                            <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                    class="oi oi-grid-three-up"> <fa-icon [icon]="faGripVertical"></fa-icon></span></a>
+                            <div class="dropdown-menu dropdown-menu-rich dropdown-menu-right"
+                                [ngClass]="isActive? 'show':' '">
+                                <div class="dropdown-arrow"></div>
+                                <div class="dropdown-sheets">
+                                    <div class="dropdown-sheet-item">
+                                        <a class="tile-wrapper"><span class="tile tile-lg bg-indigo"
+                                                (click)="openInvite()"><i class="oi oi-people" data-toggle="modal"
+                                                    data-target="#inviteSendModal"><fa-icon
+                                                        [icon]="faShareFromSquare"></fa-icon></i></span> <span
+                                                class="tile-peek">Invite</span></a>
+                                    </div>
+                                    <div class="dropdown-sheet-item">
+                                        <a class="tile-wrapper"><span class="tile tile-lg bg-teal"
+                                                (click)="openLanguage()"><i class="oi oi-fork" data-toggle="modal"
+                                                    data-target="#languageModal"><fa-icon
+                                                        [icon]="faLanguage"></fa-icon></i></span> <span
+                                                class="tile-peek">Language</span></a>
+                                    </div>
+                                    <div class="dropdown-sheet-item">
+                                        <a href="#" class="tile-wrapper"><span class="tile tile-lg bg-pink"><i><fa-icon
+                                                        [icon]="faMoneyBill"></fa-icon></i></span> <span
+                                                class="tile-peek">Pay</span></a>
+                                    </div>
+                                    <div class="dropdown-sheet-item">
+                                        <a class="tile-wrapper"><span class="tile tile-lg bg-red"
+                                                (click)="openContact()"><i data-target="#contactModal"><fa-icon
+                                                        [icon]="faMessage"></fa-icon></i></span> <span
+                                                class="tile-peek">contact</span></a>
+                                    </div>
+                                    <div class="dropdown-sheet-item">
+                                        <a [routerLink]="['/admin/yt']" class="tile-wrapper"><span
+                                                class="tile tile-lg bg-yellow"><i>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                        viewBox="0 0 576 512">
+                                                        <path
+                                                            d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                                                    </svg>
+                                                </i></span> <span class="tile-peek">YT</span></a>
+                                    </div>
+                                    <div class="dropdown-sheet-item">
+                                        <a [routerLink]="['/admin/company/add']" class="tile-wrapper"
+                                            (click)="addCompany()"><span class="tile tile-lg bg-cyan"><i><fa-icon
+                                                        [icon]="faBuildingCircleArrowRight"></fa-icon></i></span>
+                                            <span class="tile-peek">Company</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="dropdown d-flex" [ngClass]="isProfile? 'show':' '" (click)="isProfilePop()">
+                        <button #dropdownButton class="btn-account d-none d-md-flex" type="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
+                                class="user-avatar user-avatar-md"><img src="assets/images/avatars/profile.jpg"
+                                    alt=""></span> <span class="account-summary pr-lg-4 d-none d-lg-block"><span
+                                    class="account-name">Vikas
+                                    Gupta</span> <span class="account-description">
+                                    Administrator</span></span></button>
+                        <div #dropdownMenu class="dropdown-menu" [ngClass]="isProfile? 'show':' '">
+                            <div class="dropdown-arrow ml-3"></div>
+                            <h6 class="dropdown-header d-none d-md-block d-lg-none"> Vikas Gupta </h6><a
+                                class="dropdown-item" href="#"><span class="dropdown-icon oi oi-person"></span>
+                                Profile</a> <a class="dropdown-item" href="javascript:void(0)" (click)="logout()"><span
+                                    class="dropdown-icon oi oi-account-logout"></span>
+                                Logout</a>
+                            <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:void(0)"
+                                routerLink="/admin/help-center">Help Center</a> <a class="dropdown-item" href="#">Ask
+                                Forum</a> <a class="dropdown-item" href="#">Keyboard
+                                Shortcuts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside class="app-aside app-aside-expand-md app-aside-light" [ngStyle]="{width:'4rem'}">
+        <!-- .aside-content -->
+        <div class="aside-content">
+            <!-- .aside-header -->
+            <header class="aside-header d-block d-md-none">
+                <!-- .btn-account -->
+                <button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside"><span
+                        class="user-avatar user-avatar-lg"><img src="assets/images/avatars/profile.jpg" alt=""></span>
+                    <span class="account-icon"><span class="fa fa-caret-down fa-lg"></span></span> <span
+                        class="account-summary"><span class="account-name">Beni Arisandi</span> <span
+                            class="account-description">Marketing
+                            Manager</span></span></button> <!-- /.btn-account -->
+                <!-- .dropdown-aside -->
+                <div id="dropdown-aside" class="dropdown-aside collapse">
+                    <!-- dropdown-items -->
+                    <div class="pb-3">
+                        <a class="dropdown-item" href="user-profile.html"><span
+                                class="dropdown-icon oi oi-person"></span> Profile</a> <a class="dropdown-item"
+                            href="auth-signin-v1.html"><span class="dropdown-icon oi oi-account-logout"></span>
+                            Logout</a>
+                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#">Help Center</a> <a
+                            class="dropdown-item" href="#">Ask Forum</a> <a class="dropdown-item" href="#">Keyboard
+                            Shortcuts</a>
+                    </div><!-- /dropdown-items -->
+                </div><!-- /.dropdown-aside -->
+            </header><!-- /.aside-header -->
+            <div class="aside-menu overflow-hidden">
+                <nav id="stacked-menu" class="stacked-menu stacked-menu-has-compact stacked-menu-has-hoverable">
+                    <ul class="menu">
+                        <!-- <li class="menu-item" [ngClass]="isHomeActive? 'has-active':' '" (click)="homeAside()"> -->
+                        <li class="menu-item" [ngClass]="isHomeActive? 'has-active':' '" (click)="homeAside()">
+                            <a [routerLink]="['/admin/home']" class="menu-link">
+                                <span class="menu-icon fas">
+                                    <fa-icon [icon]="faHome"></fa-icon></span>
+                                <span class="menu-text">Dashboard</span></a>
+                        </li>
+                        <li class="menu-item">
+                            <!-- <li class="menu-item" [ngClass]="isUserActive? 'has-active':' '" (click)="userAside()"> -->
+                            <a [routerLink]="['/admin/users']" class="menu-link">
+                                <span class="menu-icon fas">
+                                    <fa-icon [icon]="faUserAlt"></fa-icon></span>
+                                <span class="menu-text">Users</span></a>
+                        </li>
+                        <li class="menu-item">
+                            <!-- <li class="menu-item" [ngClass]="isJobsActive? 'has-active':' '" (click)="jobsAside()"> -->
+                            <a [routerLink]="['/admin/jobs']" class="menu-link"><span class="menu-icon fas"><fa-icon
+                                        [icon]="faCodePullRequest"></fa-icon></span>
+                                <span class="menu-text">Job Requested
+                                    Page</span></a>
+                        </li>
+                        <!-- <li class="menu-item" [ngClass]="isCompanyActive? 'has-active':' '"
+                                (click)="companyAside()"> -->
+                        <li class="menu-item">
+                            <a [routerLink]="['/admin/company']" class="menu-link"><span class="menu-icon fas"><fa-icon
+                                        [icon]="faBuildingCircleArrowRight"></fa-icon></span>
+                                <span class="menu-text">Company
+                                    Page</span></a>
+                        </li>
+                        <li class="menu-item">
+                            <a [routerLink]="['/admin/vendors']" class="menu-link"><span class="menu-icon fas"><fa-icon
+                                        [icon]="faStore"></fa-icon></span>
+                                <span class="menu-text">Company
+                                    Page</span></a>
+                        </li>
+                        <!-- <li class="menu-item" [ngClass]="isYtActive? 'has-active':' '" (click)="ytAside()"> -->
+                        <li class="menu-item">
+                            <a [routerLink]="['/admin/yt']" class="menu-link"><span class="menu-icon fas"><fa-icon
+                                        [icon]="faBarsStaggered"></fa-icon></span>
+                                <span class="menu-text">YT</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </aside>
+    <main class="app-main" [ngStyle]="{'padding-left':'4rem'}">
+        <div class="wrapper">
+            <router-outlet></router-outlet>
+        </div>
+        <footer class="app-footer">
+            <ul class="list-inline">
+                <li class="list-inline-item">
+                    <a class="text-muted" href="#">Support</a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="text-muted" href="#">Help Center</a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="text-muted" href="#">Privacy</a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="text-muted" href="#">Terms of Service</a>
+                </li>
+            </ul>
+            <div class="copyright"> Copyright © 2018. All right reserved. </div>
+        </footer><!-- /.app-footer -->
+        <!-- /.wrapper -->
+    </main><!-- /.app-main -->
+</div>

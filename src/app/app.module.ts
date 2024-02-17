@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { VerifyComponent } from './component/verify/verify.component';
 import { LoginComponent } from './component/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FontAwesomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
