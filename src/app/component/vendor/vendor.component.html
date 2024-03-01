@@ -275,24 +275,21 @@
             <div class="aside-menu overflow-hidden">
                 <nav id="stacked-menu" class="stacked-menu stacked-menu-has-compact stacked-menu-has-hoverable">
                     <ul class="menu">
-                        <!-- <li class="menu-item" [ngClass]="isHomeActive? 'has-active':' '" (click)="homeAside()"> -->
                         <li class="menu-item" [ngClass]="isHomeActive? 'has-active':' '" (click)="homeAside()">
-                            <a [routerLink]="['/admin/home']" class="menu-link">
+                            <a [routerLink]="['/vendor/home']" class="menu-link">
                                 <span class="menu-icon fas">
                                     <fa-icon [icon]="faHome"></fa-icon></span>
                                 <span class="menu-text">Dashboard</span></a>
                         </li>
-                        <li class="menu-item">
-                            <!-- <li class="menu-item" [ngClass]="isUserActive? 'has-active':' '" (click)="userAside()"> -->
-                            <a [routerLink]="['/admin/users']" class="menu-link">
+                        <li class="menu-item" [ngClass]="isLanguageActive? 'has-active':' '" (click)="languageAside()">
+                            <a [routerLink]="['/vendor/language']" class="menu-link">
                                 <span class="menu-icon fas">
-                                    <fa-icon [icon]="faUserAlt"></fa-icon></span>
-                                <span class="menu-text">Users</span></a>
+                                    <fa-icon [icon]="faTerminal"></fa-icon></span>
+                                <span class="menu-text">Languages</span></a>
                         </li>
-                        <li class="menu-item">
-                            <!-- <li class="menu-item" [ngClass]="isJobsActive? 'has-active':' '" (click)="jobsAside()"> -->
-                            <a [routerLink]="['/admin/jobs']" class="menu-link"><span class="menu-icon fas"><fa-icon
-                                        [icon]="faCodePullRequest"></fa-icon></span>
+                        <li class="menu-item" [ngClass]="isPaymentActive? 'has-active':' '" (click)="paymentAside()">
+                            <a [routerLink]="['/vendor/purchase']" class="menu-link"><span
+                                    class="menu-icon fas"><fa-icon [icon]="faMoneyBillWave"></fa-icon></span>
                                 <span class="menu-text">Job Requested
                                     Page</span></a>
                         </li>

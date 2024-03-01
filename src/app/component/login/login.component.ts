@@ -79,7 +79,6 @@ export class LoginComponent {
       return;
     }
     this.authService.performSave('/api/auth/vendor/login', this.form.value).subscribe(response => {
-      console.log("ereponse", response);
       this.isLoginLoad = false;
       this.loginResponse = response;
       if (this.loginResponse.success == 1) {

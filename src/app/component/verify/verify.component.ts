@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ErrorService } from 'src/app/services/error.service';
 import { SuccessService } from 'src/app/services/success.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { SuccessService } from 'src/app/services/success.service';
   styleUrls: ['./verify.component.css']
 })
 export class VerifyComponent {
-  constructor(private route: ActivatedRoute, private authService: AuthService, private formBuilder: FormBuilder, private router: Router, private successService: SuccessService) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService, private formBuilder: FormBuilder, private router: Router, private successService: SuccessService, private errorService: ErrorService) { }
   submitted = false;
   token: any;
   form: FormGroup = new FormGroup({
@@ -68,13 +69,13 @@ export class VerifyComponent {
       token: this.token
     };
     this.authService.performSave('/api/vendor/set/password', formValueWithToken).subscribe((response: any) => {
-      if (response.success == 0) {
+      if (response.success == 1) {
         this.successService.showSuccessMessage(response.message);
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 2000);
       } else {
-
+        this.errorService.showError(response.message);
       }
     })
   }
