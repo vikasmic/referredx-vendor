@@ -13,6 +13,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SpinnerModule } from './component/common/spinner/spinner.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    SpinnerModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],

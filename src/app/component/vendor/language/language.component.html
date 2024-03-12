@@ -34,60 +34,49 @@
                 </div><!-- /.btn-toolbar -->
             </div><!-- /title and toolbar -->
         </header><!-- /.page-title-bar -->
-        <!-- .page-section -->
         <div class="page-section">
-            <!-- .card -->
             <div class="card card-fluid">
-                <!-- .section-block -->
                 <div class="section-block">
-                    <h2 class="section-title"> Language List </h2>
-                </div><!-- /.section-block -->
+                    <h2 class="section-title">Available Language List </h2>
+                </div>
                 <div class="col-xl-12">
-                    <!-- .card -->
                     <div class="card card-fluid">
-                        <!-- .table-responsive -->
                         <div class="table-responsive">
-                            <!-- .table -->
                             <table class="table table-hover">
-                                <!-- thead -->
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th style="min-width:200px"> Product </th>
-                                        <th> Variants </th>
-                                        <th> Prices </th>
+                                        <th style="min-width:200px"> Language </th>
+                                        <th> Language Type </th>
+                                        <th> Price </th>
+                                        <th> Book </th>
                                     </tr>
-                                </thead><!-- /thead -->
-                                <!-- tbody -->
-                                <tbody>
-                                    <!-- tr -->
+                                </thead>
+                                <tbody *ngIf="loading; else dataContent">
                                     <tr>
-                                        <td> Wine - Chateau Bonnet </td>
-                                        <td> 113 </td>
-                                        <td> $22.38 </td>
-                                    </tr><!-- /tr -->
-                                    <!-- tr -->
-                                    <tr>
-                                        <td> Cookie - Oatmeal </td>
-                                        <td> 216 </td>
-                                        <td> $21.90 </td>
-                                    </tr><!-- /tr -->
-                                    <!-- tr -->
-                                    <tr>
-                                        <td> True - Vue Containers </td>
-                                        <td> 191 </td>
-                                        <td> $24.96 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Nut - Pumpkin Seeds </td>
-                                        <td> 329 </td>
-                                        <td> $32.21 </td>
-                                    </tr>
-                                    <tr>
-                                        <td> Artichoke - Bottom, Canned </td>
-                                        <td> 375 </td>
-                                        <td> $27.75 </td>
+                                        <td colspan="3">
+                                            <div class="empty-state-container">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </tbody>
+                                <ng-template #dataContent>
+                                    <tbody *ngFor="let lan of langList; let i = index">
+                                        <tr>
+                                            <td>
+                                                <!-- <a href="javascript:void(0)" (click)="getQuestions(i)"> -->
+                                                {{lan.language}}
+                                                <!-- </a> -->
+                                            </td>
+                                            <td> {{lan.languageType}} </td>
+                                            <td> {{lan.plan.price}}/Month-{{lan.plan.duration}} </td>
+                                            <td [ngStyle]="{'cursor': 'pointer'}" (click)="getQuestions(i)"> <fa-icon
+                                                    [icon]="faCalendarPlus"></fa-icon> </td>
+                                        </tr>
+                                    </tbody>
+                                </ng-template>
                             </table>
                         </div>
                     </div>

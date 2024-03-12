@@ -21,7 +21,6 @@ export class HomeComponent {
     email: new FormControl(''),
     contact: new FormControl(''),
     countryId: new FormControl(''),
-
   });
 
   ngOnInit() {

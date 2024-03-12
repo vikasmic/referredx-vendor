@@ -1,0 +1,8 @@
+.input-group.input-group-alt {
+    width: 500px;
+  }
+  
+  .input-group.input-group-alt .form-control {
+    width: calc(100% - 38px);
+  }
+  

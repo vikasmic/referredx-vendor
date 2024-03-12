@@ -1,0 +1,124 @@
+<div class="page">
+    <!-- .page-inner -->
+    <div class="page-inner">
+        <!-- .page-title-bar -->
+        <header class="page-title-bar">
+            <!-- .breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">
+                        <a href="#"><i class="breadcrumb-icon fa fa-angle-left mr-2"></i>Tables</a>
+                    </li>
+                </ol>
+            </nav><!-- /.breadcrumb -->
+            <!-- floating action -->
+            <button type="button" class="btn btn-success btn-floated"><span class="fa fa-plus"></span></button>
+            <!-- /floating action -->
+            <!-- title and toolbar -->
+            <div class="d-md-flex align-items-md-start">
+                <h1 class="page-title mr-sm-auto"> Basic Table </h1><!-- .btn-toolbar -->
+                <div class="btn-toolbar">
+                    <button type="button" class="btn btn-light"><i class="oi oi-data-transfer-download"></i> <span
+                            class="ml-1">Export</span></button> <button type="button" class="btn btn-light"><i
+                            class="oi oi-data-transfer-upload"></i> <span class="ml-1">Import</span></button>
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-light" data-toggle="dropdown"><span>More</span> <span
+                                class="fa fa-caret-down"></span></button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-arrow"></div><a href="#" class="dropdown-item">Add tasks</a> <a
+                                href="#" class="dropdown-item">Invite members</a>
+                            <div class="dropdown-divider"></div><a href="#" class="dropdown-item">Share</a> <a href="#"
+                                class="dropdown-item">Archive</a> <a href="#" class="dropdown-item">Remove</a>
+                        </div>
+                    </div>
+                </div><!-- /.btn-toolbar -->
+            </div><!-- /title and toolbar -->
+        </header><!-- /.page-title-bar -->
+        <div class="page-section">
+            <div class="card card-fluid">
+                <div class="section-block">
+                    <h2 class="section-title">Available Language List </h2>
+                </div>
+                <div class="col-xl-12">
+                    <div class="card card-fluid">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th> Language </th>
+                                        <th> Question </th>
+                                        <th style="min-width:250px"> Youtube link </th>
+                                        <th> Action </th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="loading; else dataContent">
+                                    <tr>
+                                        <td colspan="3">
+                                            <div class="empty-state-container">
+                                                <div class="spinner-border text-primary" role="status">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <ng-template #dataContent>
+                                    <tbody *ngFor="let ques of questionForVendor; let i = index">
+                                        <tr>
+                                            <td>{{ que.data.language }}</td>
+                                            <td>{{ ques.question }}</td>
+                                            <td>
+                                                <ng-container *ngIf="!ques.isQuestionUpdated; else updatedLink">
+                                                    <form [formGroup]="form" (ngSubmit)="onSubmit(i)">
+                                                        <div class="form-group">
+                                                            <div class="input-group input-group-alt">
+                                                                <label class="input-group-prepend" for="bi2"></label>
+                                                                <input type="text" class="form-control" id="bi2"
+                                                                    placeholder="e.g. uselooper"
+                                                                    formControlName="youtubeLink"
+                                                                    [ngClass]="{ 'is-invalid': submitted && f['youtubeLink'].errors }"
+                                                                    autocomplete="off">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-primary"
+                                                                        type="submit">Add</button>
+                                                                </div>
+                                                                <div *ngIf="submitted && f['youtubeLink'].errors"
+                                                                    class="invalid-feedback">
+                                                                    <div *ngIf="f['youtubeLink'].errors['required']">
+                                                                        Link must be required</div>
+                                                                    <div
+                                                                        *ngIf="f['youtubeLink'].errors['invalidYoutubeLink']">
+                                                                        Invalid Youtube Link</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </ng-container>
+                                                <ng-template #updatedLink>
+                                                    <a [href]="ques.youtube_link" target="_blank"
+                                                        class="card-footer-item" data-toggle="modal"
+                                                        [ngStyle]="{'cursor': 'pointer'}"><i class="mr-1"><fa-icon
+                                                                [icon]="faLink"></fa-icon></i>
+                                                        {{ques.youtube_link}}</a>
+                                                </ng-template>
+                                            </td>
+                                            <td class="align-middle">
+                                                <a class="btn btn-sm btn-icon btn-secondary"><i
+                                                        class="fa fa-pencil-alt"><fa-icon
+                                                            [icon]="faPencil"></fa-icon></i>
+                                                    <span class="sr-only">Edit</span></a> <a
+                                                    class="btn btn-sm btn-icon btn-secondary"><i
+                                                        class="far fa-trash-alt">
+                                                        <fa-icon [icon]="faTrashAlt"></fa-icon></i> <span
+                                                        class="sr-only">Remove</span></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </ng-template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
